@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Processor</title>
+  <style>
+    /* === CSS START === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #007bff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .btn {
+      padding: 0.5rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .btn.large {
+      background-color: #28a745;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      background: #e9f5ff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #007bff;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .features, .tools {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .feature-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      width: 250px;
+    }
+
+    .tools .tool-list {
+      list-style: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      display: inline-block;
+      text-align: left;
+    }
+
+    footer {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* === CSS END === */
+  </style>
+</head>
+<body>
+
+  <!-- === HTML START === -->
+  <header>
+    <nav>
+      <div class="logo">PDFProcessor</div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn primary">Get Started</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>All-in-One PDF Toolkit</h1>
+      <p>Merge, Split, Compress, Convert and Manage PDFs for Free</p>
+      <button class="btn large">Try Now</button>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Why Use PDFProcessor?</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Fast & Secure</h3>
+        <p>All operations are encrypted and super-fast.</p>
+      </div>
+      <div class="card">
+        <h3>No Installation</h3>
+        <p>100% browser-based, works on all devices.</p>
+      </div>
+      <div class="card">
+        <h3>Free Forever</h3>
+        <p>Access powerful PDF tools without paying anything.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" class="tools">
+    <h2>Popular Tools</h2>
+    <ul class="tool-list">
+      <li>🔗 Merge PDF</li>
+      <li>✂️ Split PDF</li>
+      <li>📦 Compress PDF</li>
+      <li>🔄 Convert to Word</li>
+      <li>📄 PDF to JPG</li>
+    </ul>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 PDFProcessor. All rights reserved.</p>
+  </footer>
+  <!-- === HTML END === -->
+
+  <!-- === JavaScript START === -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.querySelector(".btn.large");
+      btn.addEventListener("click", () => {
+        alert("Tool launching soon! Stay tuned 🚀");
+      });
+    });
+  </script>
+  <!-- === JavaScript END === -->
+
+</body>
+</html>
