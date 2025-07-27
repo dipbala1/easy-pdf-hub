@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EASY PDF HUB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Reset */
         * {
@@ -14,9 +15,9 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            background-color: #EDE4F0;
             color: #333;
         }
 
@@ -26,13 +27,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: #003366;
+            background-color: #CBB4D4;
             color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header .logo h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Roboto', sans-serif;
         }
 
         nav ul {
@@ -48,59 +52,65 @@
             color: white;
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: color 0.4s ease-in-out;
         }
 
         nav ul li a:hover {
-            color: #ff6600;
+            color: #A88BC1;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(45deg, #0077b6, #00b4d8);
+            padding: 100px 20px;
+            background: linear-gradient(45deg, #CBB4D4, #A88BC1);
             color: white;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
-            animation: fadeIn 2s ease-in;
+            animation: slideIn 2s ease-out;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: 30px;
-            animation: fadeIn 2s ease-in;
+            animation: slideIn 2s ease-out;
         }
 
         .cta-btn {
-            padding: 12px 30px;
-            font-size: 1rem;
-            background-color: #ff6600;
+            padding: 14px 30px;
+            font-size: 1.2rem;
+            background-color: #A88BC1;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            animation: fadeIn 2s ease-in;
+            animation: buttonHover 2s ease-in-out infinite;
+            transition: transform 0.3s ease;
         }
 
         .cta-btn:hover {
-            background-color: #e65c00;
+            background-color: #EDE4F0;
+            transform: scale(1.1);
         }
 
         /* Features Section */
         .features {
             text-align: center;
-            padding: 40px 20px;
-            background-color: #ffffff;
+            padding: 50px 20px;
+            background-color: #F8F1FA;
         }
 
         .features h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 30px;
-            color: #003366;
+            color: #A88BC1;
+            font-family: 'Roboto', sans-serif;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .feature-list {
@@ -112,44 +122,48 @@
         .feature-item {
             width: 250px;
             margin: 20px;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-radius: 10px;
+            padding: 25px;
+            background-color: #CBB4D4;
+            border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.4s ease;
+            color: white;
+            font-family: 'Poppins', sans-serif;
         }
 
         .feature-item:hover {
             transform: translateY(-10px);
-            background-color: #eaeaea;
+            background-color: #A88BC1;
         }
 
         .feature-item h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #003366;
+            color: #EDE4F0;
         }
 
         .feature-item p {
             font-size: 1rem;
-            color: #666;
+            color: #F8F1FA;
         }
 
         /* About Section */
         .about {
             text-align: center;
-            padding: 40px 20px;
-            background-color: #0077b6;
+            padding: 60px 20px;
+            background-color: #CBB4D4;
             color: white;
+            font-family: 'Roboto', sans-serif;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #003366;
+            background-color: #A88BC1;
             color: white;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Animations */
@@ -163,6 +177,32 @@
             }
         }
 
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes buttonHover {
+            0% {
+                background-color: #A88BC1;
+            }
+
+            50% {
+                background-color: #CBB4D4;
+            }
+
+            100% {
+                background-color: #A88BC1;
+            }
+        }
+
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .feature-list {
@@ -171,6 +211,14 @@
 
             .feature-item {
                 width: 80%;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -211,94 +259,7 @@
                 <h3>PDF to Excel</h3>
                 <p>Convert PDF files into Excel spreadsheets.</p>
             </div>
-            <div class="feature-item">
-                <h3>Word to PDF</h3>
-                <p>Convert Word documents to PDF format.</p>
-            </div>
-            <div class="feature-item">
-                <h3>PowerPoint to PDF</h3>
-                <p>Convert PowerPoint files to PDF.</p>
-            </div>
-            <div class="feature-item">
-                <h3>PDF Editor</h3>
-                <p>Edit your PDF files effortlessly.</p>
-            </div>
-            <div class="feature-item">
-                <h3>PDF to JPG</h3>
-                <p>Convert PDF files to JPG images.</p>
-            </div>
-            <div class="feature-item">
-                <h3>JPG to PDF</h3>
-                <p>Convert JPG images to PDF format.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Sign PDF</h3>
-                <p>Sign PDF documents digitally.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Watermark PDF</h3>
-                <p>Add watermarks to your PDFs.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Rotate PDF</h3>
-                <p>Rotate your PDF files as needed.</p>
-            </div>
-            <div class="feature-item">
-                <h3>HTML to PDF</h3>
-                <p>Convert HTML pages to PDF documents.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Unlock PDF</h3>
-                <p>Unlock password-protected PDF files.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Protect PDF</h3>
-                <p>Secure your PDFs with a password.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Organize PDF</h3>
-                <p>Organize pages in your PDF documents.</p>
-            </div>
-            <div class="feature-item">
-                <h3>PDF to PDF/A</h3>
-                <p>Convert PDF files to PDF/A format.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Repair PDF</h3>
-                <p>Fix corrupted PDF files.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Add Page Numbers</h3>
-                <p>Add page numbers to your PDF.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Scan to PDF</h3>
-                <p>Scan documents and save as PDF.</p>
-            </div>
-            <div class="feature-item">
-                <h3>OCR to PDF</h3>
-                <p>Convert scanned text to searchable PDF.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Compare PDF Files</h3>
-                <p>Compare two PDF files for differences.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Redact PDF Content</h3>
-                <p>Redact sensitive information from PDFs.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Crop PDF</h3>
-                <p>Crop pages in your PDF documents.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Camera Scan to PDF</h3>
-                <p>Scan documents directly using your camera.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Image to PDF</h3>
-                <p>Convert images to PDF format.</p>
-            </div>
+            <!-- More features here -->
         </div>
     </section>
 
@@ -322,4 +283,5 @@
 </body>
 
 </html>
+
 
