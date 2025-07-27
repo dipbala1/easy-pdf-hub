@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Word Converter - Easy Convert</title>
+    <meta name="description" content="Convert your PDF documents to Word format with ease. Upload and download converted files in seconds.">
+    <meta name="keywords" content="PDF to Word, PDF converter, convert PDF to Word, Word converter, online PDF to Word">
+    <meta name="author" content="Easy Convert">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .upload-btn {
+            background-color: #FF5722;
+            color: white;
+            padding: 14px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #FF9800;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .loading span {
+            font-size: 1.2rem;
+            color: #009688;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .tool-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #009688;
+        }
+
+        .tool-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .tool-card button {
+            background-color: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tool-card button:hover {
+            background-color: #FF9800;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Easy PDF to Word Converter</h1>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Convert PDF to Word in Seconds</h2>
+        <p>Upload your PDF file, and we'll convert it into a fully editable Word document. It's quick, easy, and free!</p>
+        <input type="file" id="pdfUpload" class="upload-btn" accept=".pdf" />
+        <div class="loading">
+            <span>Converting...</span>
+        </div>
+    </section>
+
+    <!-- Main Content Section (Features) -->
+    <section class="main-content">
+        <div class="tool-card">
+            <h3>PDF to Word</h3>
+            <p>Convert PDF documents into editable Word files effortlessly.</p>
+            <button>Try Now</button>
+        </div>
+        <div class="tool-card">
+            <h3>PDF to PowerPoint</h3>
+            <p>Transform your PDF into PowerPoint presentations in seconds.</p>
+            <button>Try Now</button>
+        </div>
+        <div class="tool-card">
+            <h3>PDF to Excel</h3>
+            <p>Convert PDF data into Excel spreadsheets for better management.</p>
+            <button>Try Now</button>
+        </div>
+        <!-- Add more tools as necessary -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Easy Convert. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // PDF to Word Conversion Logic (Simulated for Frontend)
+        const uploadInput = document.getElementById("pdfUpload");
+        const loadingIndicator = document.querySelector(".loading");
+
+        uploadInput.addEventListener("change", function () {
+            if (uploadInput.files.length > 0) {
+                loadingIndicator.style.display = "block"; // Show loading
+                setTimeout(() => {
+                    loadingIndicator.style.display = "none"; // Hide loading after conversion
+                    alert("PDF successfully converted to Word!");
+                }, 2000); // Simulate conversion time
+            }
+        });
+    </script>
+</body>
+
+</html>
