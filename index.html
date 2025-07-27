@@ -1,196 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PDF Processor</title>
-  <style>
-    /* === CSS START === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EASY PDF HUB</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      line-height: 1.6;
-      color: #333;
-      background: #f9f9f9;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    header {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1rem 2rem;
-    }
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+        }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        header .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
 
-    .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #007bff;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+        nav ul li {
+            margin: 0 15px;
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
 
-    .btn {
-      padding: 0.5rem 1.2rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: 600;
-    }
+        nav ul li a:hover {
+            color: #ff6600;
+        }
 
-    .btn.primary {
-      background-color: #007bff;
-      color: #fff;
-    }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(45deg, #0077b6, #00b4d8);
+            color: white;
+        }
 
-    .btn.large {
-      background-color: #28a745;
-      color: #fff;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
 
-    .hero {
-      padding: 4rem 2rem;
-      background: #e9f5ff;
-      text-align: center;
-    }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in;
+        }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #007bff;
-    }
+        .cta-btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            animation: fadeIn 2s ease-in;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
+        .cta-btn:hover {
+            background-color: #e65c00;
+        }
 
-    .features, .tools {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
+        /* Features Section */
+        .features {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
 
-    .feature-cards {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #003366;
+        }
 
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      width: 250px;
-    }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .tools .tool-list {
-      list-style: none;
-      padding: 1rem;
-      font-size: 1.1rem;
-      display: inline-block;
-      text-align: left;
-    }
+        .feature-item {
+            width: 250px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
 
-    footer {
-      background: #007bff;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    /* === CSS END === */
-  </style>
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background-color: #eaeaea;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #0077b6;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .feature-list {
+                flex-direction: column;
+            }
+
+            .feature-item {
+                width: 80%;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <header>
+        <div class="logo">
+            <h1>EASY PDF HUB</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- === HTML START === -->
-  <header>
-    <nav>
-      <div class="logo">PDFProcessor</div>
-      <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="btn primary">Get Started</button>
-    </nav>
-  </header>
+    <section class="hero">
+        <h2 class="hero-title">Your One-Stop PDF Tool</h2>
+        <p class="hero-subtitle">Convert, Edit, Organize, and Secure Your PDFs with Ease</p>
+        <button class="cta-btn">Get Started</button>
+    </section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>All-in-One PDF Toolkit</h1>
-      <p>Merge, Split, Compress, Convert and Manage PDFs for Free</p>
-      <button class="btn large">Try Now</button>
-    </div>
-  </section>
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>PDF to Word</h3>
+                <p>Convert PDF files to Word documents quickly.</p>
+            </div>
+            <div class="feature-item">
+                <h3>PDF to PowerPoint</h3>
+                <p>Convert PDF files into PowerPoint presentations.</p>
+            </div>
+            <div class="feature-item">
+                <h3>PDF to Excel</h3>
+                <p>Convert PDF files into Excel spreadsheets.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Word to PDF</h3>
+                <p>Convert Word documents to PDF format.</p>
+            </div>
+            <div class="feature-item">
+                <h3>PowerPoint to PDF</h3>
+                <p>Convert PowerPoint files to PDF.</p>
+            </div>
+            <div class="feature-item">
+                <h3>PDF Editor</h3>
+                <p>Edit your PDF files effortlessly.</p>
+            </div>
+            <div class="feature-item">
+                <h3>PDF to JPG</h3>
+                <p>Convert PDF files to JPG images.</p>
+            </div>
+            <div class="feature-item">
+                <h3>JPG to PDF</h3>
+                <p>Convert JPG images to PDF format.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Sign PDF</h3>
+                <p>Sign PDF documents digitally.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Watermark PDF</h3>
+                <p>Add watermarks to your PDFs.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Rotate PDF</h3>
+                <p>Rotate your PDF files as needed.</p>
+            </div>
+            <div class="feature-item">
+                <h3>HTML to PDF</h3>
+                <p>Convert HTML pages to PDF documents.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Unlock PDF</h3>
+                <p>Unlock password-protected PDF files.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Protect PDF</h3>
+                <p>Secure your PDFs with a password.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Organize PDF</h3>
+                <p>Organize pages in your PDF documents.</p>
+            </div>
+            <div class="feature-item">
+                <h3>PDF to PDF/A</h3>
+                <p>Convert PDF files to PDF/A format.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Repair PDF</h3>
+                <p>Fix corrupted PDF files.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Add Page Numbers</h3>
+                <p>Add page numbers to your PDF.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Scan to PDF</h3>
+                <p>Scan documents and save as PDF.</p>
+            </div>
+            <div class="feature-item">
+                <h3>OCR to PDF</h3>
+                <p>Convert scanned text to searchable PDF.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Compare PDF Files</h3>
+                <p>Compare two PDF files for differences.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Redact PDF Content</h3>
+                <p>Redact sensitive information from PDFs.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Crop PDF</h3>
+                <p>Crop pages in your PDF documents.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Camera Scan to PDF</h3>
+                <p>Scan documents directly using your camera.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Image to PDF</h3>
+                <p>Convert images to PDF format.</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="features" class="features">
-    <h2>Why Use PDFProcessor?</h2>
-    <div class="feature-cards">
-      <div class="card">
-        <h3>Fast & Secure</h3>
-        <p>All operations are encrypted and super-fast.</p>
-      </div>
-      <div class="card">
-        <h3>No Installation</h3>
-        <p>100% browser-based, works on all devices.</p>
-      </div>
-      <div class="card">
-        <h3>Free Forever</h3>
-        <p>Access powerful PDF tools without paying anything.</p>
-      </div>
-    </div>
-  </section>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Easy PDF Hub is designed to provide a comprehensive range of tools to handle all your PDF needs in one place.</p>
+    </section>
 
-  <section id="tools" class="tools">
-    <h2>Popular Tools</h2>
-    <ul class="tool-list">
-      <li>🔗 Merge PDF</li>
-      <li>✂️ Split PDF</li>
-      <li>📦 Compress PDF</li>
-      <li>🔄 Convert to Word</li>
-      <li>📄 PDF to JPG</li>
-    </ul>
-  </section>
+    <footer id="contact">
+        <p>&copy; 2025 EASY PDF HUB. All Rights Reserved.</p>
+    </footer>
 
-  <footer id="contact">
-    <p>&copy; 2025 PDFProcessor. All rights reserved.</p>
-  </footer>
-  <!-- === HTML END === -->
-
-  <!-- === JavaScript START === -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const btn = document.querySelector(".btn.large");
-      btn.addEventListener("click", () => {
-        alert("Tool launching soon! Stay tuned 🚀");
-      });
-    });
-  </script>
-  <!-- === JavaScript END === -->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctaButton = document.querySelector('.cta-btn');
+            ctaButton.addEventListener('click', function () {
+                alert("Let's get started with your PDF tools!");
+            });
+        });
+    </script>
 </body>
+
 </html>
+
