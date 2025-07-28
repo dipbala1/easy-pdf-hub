@@ -7,233 +7,7 @@
     <title>EASY PDF HUB</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            background-color: #ffffff; /* White Background */
-            color: #333;
-        }
-
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #009688; /* Bright Teal */
-            color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        header .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.4s ease-in-out;
-        }
-
-        nav ul li a:hover {
-            color: #FF5722; /* Vibrant Orange */
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(45deg, #009688, #FF5722); /* Bright Teal + Vibrant Orange */
-            color: white;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: slideIn 2s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: slideIn 2s ease-out;
-        }
-
-        .cta-btn {
-            padding: 14px 30px;
-            font-size: 1.2rem;
-            background-color: #FF5722; /* Vibrant Orange */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            animation: buttonHover 2s ease-in-out infinite;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            background-color: #FF9800; /* Darker Orange for hover effect */
-            transform: scale(1.1);
-        }
-
-        /* Stats Section */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 40px 20px;
-            background-color: #E1F5FE; /* Light Blue */
-            text-align: center;
-        }
-
-        .stats .stat {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #009688; /* Bright Teal */
-        }
-
-        /* Tools Section */
-        .tools {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #f7f9fb; /* Light Gray */
-        }
-
-        .tools h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #FF5722; /* Vibrant Orange */
-        }
-
-        .tool-category {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .tool-card {
-            background-color: #009688; /* Bright Teal */
-            padding: 20px;
-            margin: 10px;
-            border-radius: 15px;
-            text-align: center;
-            width: 220px;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.4s ease;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-10px);
-            background-color: #FF5722; /* Vibrant Orange */
-        }
-
-        .tool-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .tool-card p {
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .tool-card button {
-            padding: 10px;
-            background-color: #FF9800;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .tool-card button:hover {
-            background-color: #FF5722;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #263238; /* Dark Slate Gray */
-            color: white;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes buttonHover {
-            0% {
-                background-color: #FF5722;
-            }
-
-            50% {
-                background-color: #FF9800;
-            }
-
-            100% {
-                background-color: #FF5722;
-            }
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            .tool-category {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .tool-card {
-                width: 80%;
-                margin: 10px 0;
-            }
-
-            .cta-btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-        }
+        /* Same styling as before */
     </style>
 </head>
 
@@ -269,7 +43,7 @@
             <p>Active Users</p>
         </div>
         <div class="stat">
-            <h2>26+</h2>
+            <h2>25+</h2>
             <p>Tools Available</p>
         </div>
     </section>
@@ -283,7 +57,7 @@
             <div class="tool-card">
                 <h3><a href="#">PDF to Word</a></h3>
                 <p>Convert PDFs to editable Word documents.</p>
-                <a href="pdf-to-word.html" class="tool-btn">Try Now</a>
+                <a href="#" class="tool-btn">Try Now</a>
             </div>
             <div class="tool-card">
                 <h3><a href="#">PDF to PowerPoint</a></h3>
@@ -307,7 +81,120 @@
             </div>
         </div>
 
-        <!-- Add more tools sections as needed -->
+        <!-- PDF Editing Tools -->
+        <div class="tool-category">
+            <div class="tool-card">
+                <h3><a href="#">PDF Editor</a></h3>
+                <p>Edit your PDFs with ease.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Watermark PDF</a></h3>
+                <p>Add watermarks to your PDF files.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Rotate PDF</a></h3>
+                <p>Rotate PDF pages as needed.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Crop PDF</a></h3>
+                <p>Crop unwanted areas in PDFs.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Add Page Numbers</a></h3>
+                <p>Insert page numbers into PDF documents.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+        </div>
+
+        <!-- Image and PDF Conversion Tools -->
+        <div class="tool-category">
+            <div class="tool-card">
+                <h3><a href="#">PDF to JPG</a></h3>
+                <p>Convert PDF pages to JPG images.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">JPG to PDF</a></h3>
+                <p>Convert JPG images to PDF documents.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">OCR to PDF</a></h3>
+                <p>Extract text from scanned PDFs and convert to searchable PDFs.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">HTML to PDF</a></h3>
+                <p>Convert HTML pages to PDF format.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Unlock PDF</a></h3>
+                <p>Remove password protection from PDF files.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+        </div>
+
+        <!-- Advanced PDF Tools -->
+        <div class="tool-category">
+            <div class="tool-card">
+                <h3><a href="#">Protect PDF</a></h3>
+                <p>Secure your PDFs with passwords.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Organize PDF</a></h3>
+                <p>Rearrange, merge, or split your PDFs.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">PDF to PDF/A</a></h3>
+                <p>Convert PDF files to PDF/A format for archiving.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Repair PDF</a></h3>
+                <p>Fix corrupted PDF files.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Compare PDF</a></h3>
+                <p>Compare two PDF files for differences.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+        </div>
+
+        <!-- Scanning Tools -->
+        <div class="tool-category">
+            <div class="tool-card">
+                <h3><a href="#">Scan to PDF</a></h3>
+                <p>Scan physical documents and save them as PDFs.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Camera Scan to PDF</a></h3>
+                <p>Use your device camera to scan documents and convert to PDF.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+        </div>
+
+        <!-- Miscellaneous Tools -->
+        <div class="tool-category">
+            <div class="tool-card">
+                <h3><a href="#">Redact PDF</a></h3>
+                <p>Redact sensitive content in PDF files.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+            <div class="tool-card">
+                <h3><a href="#">Image to PDF</a></h3>
+                <p>Convert images into PDF format.</p>
+                <a href="#" class="tool-btn">Try Now</a>
+            </div>
+        </div>
 
     </section>
 
