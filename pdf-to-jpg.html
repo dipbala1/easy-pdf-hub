@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PDF to JPG Converter – EASY PDF HUB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        :root {
+            --accent: #0066ff;
+            --accent-hover: #0052cc;
+            --text: #1f2937;
+            --light: #f9fafb;
+            --shadow: 0 4px 12px rgba(0,0,0,.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-top: .5rem;
+        }
+
+        .pdf-icon {
+            display: inline-block;
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: .75rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all .3s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        #uploadBtn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            padding: .9rem 2.2rem;
+            border-radius: .5rem;
+            cursor: pointer;
+            transition: transform .2s, background .2s;
+        }
+
+        #uploadBtn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        #fileName {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            margin: 1rem 0 1.25rem;
+            font-size: .95rem;
+            color: #10b981;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        #fileName.show {
+            opacity: 1;
+        }
+
+        #spinner {
+            height: 36px;
+            margin: 1rem auto;
+            display: none;
+        }
+
+        .spinner-ring {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #downloadBtn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: .9rem 2.2rem;
+            border-radius: .5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            animation: bounceIn .4s;
+        }
+
+        #downloadBtn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(.9);
+            }
+            60% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card {
+                padding: 1.75rem;
+            }
+
+            .header h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <i class="fas fa-file-pdf pdf-icon"></i>
+            <h1>Convert PDF to JPG</h1>
+            <p>Extract high-quality images from your PDF</p>
+        </div>
+
+        <div class="card">
+            <input type="file" id="fileInput" accept=".pdf"/>
+            <button id="uploadBtn">Select PDF File</button>
+
+            <div id="fileName">
+                <i class="fas fa-check-circle"></i>
+                <span id="fileNameText"></span>
+            </div>
+
+            <div id="spinner">
+                <div class="spinner-ring"></div>
+                <p style="margin-top:.25rem;font-size:.9rem;color:#6b7280">Uploading…</p>
+            </div>
+
+            <button id="downloadBtn">Download JPG File</button>
+        </div>
+    </div>
+
+    <script>
+        const uploadBtn = document.getElementById('uploadBtn');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const fileNameTxt = document.getElementById('fileNameText');
+        const spinner = document.getElementById('spinner');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        uploadBtn.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            fileNameTxt.textContent = file.name;
+            fileName.classList.add('show');
+            uploadBtn.style.display = 'none';
+            spinner.style.display = 'block';
+
+            // Simulate upload + convert
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                downloadBtn.style.display = 'inline-block';
+            }, 2500);
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            window.location.href = 'download-page.html';
+        });
+    </script>
+</body>
+</html>
